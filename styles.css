@@ -1,5 +1,5 @@
 /* ============================================
-   GLOBAL STYLES & RESET
+   GLOBAL STYLES & RESET - HACKER THEME
    ============================================ */
 
 * {
@@ -13,11 +13,15 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Dark terminal background */
+    font-family: 'Courier New', Courier, monospace;
     line-height: 1.6;
-    color: #374151;
-    background: linear-gradient(to bottom right, #fef2f2, #fce7e6, #fee2e2);
+    color: #00FF00; /* Neon Green text */
+    background-color: #000000; /* Pure Black background */
     min-height: 100vh;
+    /* Optional: subtle dark green grain/scanline effect */
+    /* background-image: radial-gradient(#003300 1px, transparent 1px), radial-gradient(#003300 1px, #000000 1px);
+    background-size: 2px 2px; */
 }
 
 /* ============================================
@@ -27,11 +31,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
+    text-shadow: 0 0 5px #00FF00; /* Neon glow */
 }
 
 a {
-    color: inherit;
+    color: #00FFFF; /* Neon Cyan links */
     text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-shadow: 0 0 8px #00FFFF;
 }
 
 /* ============================================
@@ -49,12 +59,12 @@ a {
    ============================================ */
 
 .header {
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #0A0A0A; /* Slightly off-black for header */
+    box-shadow: 0 4px 10px rgba(0, 255, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: 2px solid #DC2626;
+    border-bottom: 2px solid #00FF00;
 }
 
 .header-content {
@@ -73,16 +83,15 @@ a {
 .logo {
     width: 40px;
     height: 40px;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* Remove rounded corners */
+    box-shadow: 0 0 5px #00FF00;
+    border: 1px solid #00FF00;
 }
 
 .app-title {
     font-size: 1.5rem;
-    background: linear-gradient(to right, #DC2626, #991B1B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 .nav {
@@ -93,20 +102,25 @@ a {
 
 .nav-link {
     padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    border-radius: 0;
     transition: all 0.3s ease;
-    color: #374151;
+    color: #00FFFF;
     font-weight: 500;
+    border: 1px solid transparent;
 }
 
 .nav-link:hover {
-    color: #DC2626;
-    background-color: #FEE2E2;
+    color: #00FF00;
+    background-color: #001A00;
+    border-color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 .nav-link.active {
-    color: #DC2626;
-    background-color: #FEE2E2;
+    color: #00FF00;
+    background-color: #001A00;
+    border-color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 /* ============================================
@@ -120,17 +134,16 @@ a {
 
 .hero-title {
     font-size: 3.75rem;
-    background: linear-gradient(to right, #DC2626, #7F1D1D);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: #4B5563;
+    color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
     margin-bottom: 2.5rem;
     max-width: 42rem;
     margin-left: auto;
@@ -154,35 +167,44 @@ a {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: none;
+    border: 2px solid #00FF00;
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
+    background-color: transparent;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 .btn-primary {
-    background-color: #DC2626;
-    color: white;
-    box-shadow: 0 10px 15px rgba(220, 38, 38, 0.3);
+    background-color: #00FF00;
+    color: #000000;
+    border-color: #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+    text-shadow: none;
 }
 
 .btn-primary:hover {
-    background-color: #991B1B;
+    background-color: #00CC00;
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 0 15px #00FF00;
 }
 
 .btn-secondary {
-    background-color: white;
-    color: #DC2626;
-    border: 2px solid #DC2626;
+    background-color: transparent;
+    color: #00FFFF;
+    border-color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
 }
 
 .btn-secondary:hover {
-    background-color: #FEE2E2;
+    background-color: #001A1A;
+    border-color: #00FF00;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 .btn-icon {
@@ -201,10 +223,8 @@ a {
     font-size: 2.25rem;
     text-align: center;
     margin-bottom: 3.5rem;
-    background: linear-gradient(to right, #DC2626, #991B1B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #00FF00;
+    text-shadow: 0 0 8px #00FF00;
 }
 
 .features-grid {
@@ -214,33 +234,37 @@ a {
 }
 
 .feature-card {
-    background-color: white;
-    border: 2px solid #FECACA;
-    border-radius: 0.75rem;
+    background-color: #0A0A0A;
+    border: 2px solid #00FF00;
+    border-radius: 0;
     padding: 2rem;
     text-align: center;
     transition: all 0.3s ease;
+    box-shadow: 0 0 5px #00FF00;
 }
 
 .feature-card:hover {
-    border-color: #DC2626;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+    border-color: #00FFFF;
+    box-shadow: 0 0 15px #00FFFF;
     transform: translateY(-4px);
 }
 
 .feature-icon {
     font-size: 3.5rem;
     margin-bottom: 0.75rem;
+    color: #00FFFF;
+    text-shadow: 0 0 8px #00FFFF;
 }
 
 .feature-title {
     font-size: 1.25rem;
-    color: #991B1B;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
     margin-bottom: 0.75rem;
 }
 
 .feature-text {
-    color: #6B7280;
+    color: #AAAAAA;
     line-height: 1.6;
 }
 
@@ -260,16 +284,15 @@ a {
 
 .apk-hero-title {
     font-size: 3rem;
-    background: linear-gradient(to right, #DC2626, #7F1D1D);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00;
     margin-bottom: 1rem;
 }
 
 .apk-hero-subtitle {
     font-size: 1.125rem;
-    color: #4B5563;
+    color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
 }
 
 /* ============================================
@@ -282,7 +305,8 @@ a {
 
 .categories-title {
     font-size: 1.25rem;
-    color: #991B1B;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
     margin-bottom: 1.25rem;
     font-weight: 700;
 }
@@ -295,24 +319,28 @@ a {
 
 .category-btn {
     padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    border: 1px solid #FECACA;
-    background-color: white;
-    color: #DC2626;
+    border-radius: 0;
+    border: 1px solid #00FF00;
+    background-color: transparent;
+    color: #00FF00;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-shadow: 0 0 3px #00FF00;
 }
 
 .category-btn:hover {
-    border-color: #DC2626;
-    background-color: #FEE2E2;
+    border-color: #00FFFF;
+    background-color: #001A1A;
+    color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
 }
 
 .category-btn.active {
-    background-color: #DC2626;
-    color: white;
-    border-color: #DC2626;
+    background-color: #00FF00;
+    color: #000000;
+    border-color: #00FF00;
+    text-shadow: none;
 }
 
 /* ============================================
@@ -327,18 +355,19 @@ a {
 }
 
 .apk-card {
-    background-color: white;
-    border: 2px solid #FECACA;
-    border-radius: 0.75rem;
+    background-color: #0A0A0A;
+    border: 2px solid #00FF00;
+    border-radius: 0;
     overflow: hidden;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 5px #00FF00;
 }
 
 .apk-card:hover {
-    border-color: #DC2626;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+    border-color: #00FFFF;
+    box-shadow: 0 0 15px #00FFFF;
     transform: translateY(-4px);
 }
 
@@ -346,24 +375,26 @@ a {
     width: 100%;
     height: 160px;
     object-fit: cover;
-    border-bottom: 1px solid #FECACA;
+    border-bottom: 1px solid #00FF00;
 }
 
 .apk-header {
     padding: 1.5rem;
-    border-bottom: 1px solid #F3E8E8;
+    border-bottom: 1px solid #003300;
 }
 
 .apk-name {
     font-size: 1.25rem;
-    color: #991B1B;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
     margin-bottom: 0.25rem;
     font-weight: 700;
 }
 
 .apk-version {
     font-size: 0.875rem;
-    color: #DC2626;
+    color: #00FFFF;
+    text-shadow: 0 0 3px #00FFFF;
     font-weight: 700;
 }
 
@@ -375,7 +406,7 @@ a {
 }
 
 .apk-description {
-    color: #6B7280;
+    color: #AAAAAA;
     font-size: 0.875rem;
     margin-bottom: 1rem;
     line-height: 1.5;
@@ -386,13 +417,14 @@ a {
 }
 
 .apk-stats {
-    background-color: #FEE2E2;
+    background-color: #001A00;
     padding: 0.5rem;
-    border-radius: 0.375rem;
+    border-radius: 0;
     font-size: 0.75rem;
-    color: #6B7280;
+    color: #00FF00;
     font-weight: 600;
     margin-bottom: 1rem;
+    border: 1px solid #00FF00;
 }
 
 .apk-buttons {
@@ -404,42 +436,50 @@ a {
 .apk-btn {
     flex: 1;
     padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    border: none;
+    border-radius: 0;
+    border: 2px solid #00FF00;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.875rem;
+    background-color: transparent;
+    color: #00FF00;
+    text-shadow: 0 0 3px #00FF00;
 }
 
 .apk-btn-download {
-    background-color: #DC2626;
-    color: white;
+    background-color: #00FF00;
+    color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+    text-shadow: none;
 }
 
 .apk-btn-download:hover {
-    background-color: #991B1B;
+    background-color: #00CC00;
 }
 
 .apk-btn-details {
-    background-color: white;
-    color: #DC2626;
-    border: 1px solid #DC2626;
+    background-color: transparent;
+    color: #00FFFF;
+    border: 2px solid #00FFFF;
+    text-shadow: 0 0 3px #00FFFF;
 }
 
 .apk-btn-details:hover {
-    background-color: #FEE2E2;
+    background-color: #001A1A;
+    border-color: #00FF00;
+    color: #00FF00;
 }
 
 .empty-state {
     text-align: center;
     padding: 3rem;
-    color: #6B7280;
+    color: #00FF00;
     font-size: 1.125rem;
+    text-shadow: 0 0 5px #00FF00;
 }
 
 /* ============================================
@@ -447,15 +487,141 @@ a {
    ============================================ */
 
 .footer {
-    background: linear-gradient(to right, #7F1D1D, #991B1B);
-    color: white;
+    background-color: #0A0A0A;
+    color: #00FF00;
     margin-top: 4rem;
     padding: 2.5rem 0;
     text-align: center;
+    border-top: 2px solid #00FF00;
+    box-shadow: 0 0 10px #00FF00;
 }
 
 .footer p {
-    color: #FEE2E2;
+    color: #00FF00;
+    text-shadow: 0 0 3px #00FF00;
+}
+
+/* ============================================
+   ADMIN PANEL STYLES (OVERRIDE)
+   ============================================ */
+
+.admin-login-container {
+    background-color: #000000 !important;
+}
+
+.admin-login-box {
+    background: #0A0A0A !important;
+    border: 2px solid #00FF00 !important;
+    box-shadow: 0 0 15px #00FF00 !important;
+}
+
+.admin-login-title {
+    color: #00FF00 !important;
+    text-shadow: 0 0 5px #00FF00 !important;
+}
+
+.form-label {
+    color: #00FF00 !important;
+}
+
+.form-input {
+    background-color: #000000 !important;
+    color: #00FF00 !important;
+    border: 1px solid #00FF00 !important;
+    border-radius: 0 !important;
+}
+
+.form-input:focus {
+    border-color: #00FFFF !important;
+    box-shadow: 0 0 5px #00FFFF !important;
+}
+
+.admin-login-btn {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+    text-shadow: none !important;
+}
+
+.admin-login-btn:hover {
+    background-color: #00CC00 !important;
+}
+
+.admin-dashboard {
+    background-color: #000000 !important;
+}
+
+.admin-header {
+    background: #0A0A0A !important;
+    border-bottom: 2px solid #00FF00 !important;
+}
+
+.admin-title {
+    color: #00FF00 !important;
+    text-shadow: 0 0 5px #00FF00 !important;
+}
+
+.admin-logout-btn {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+}
+
+.admin-section {
+    background: #0A0A0A !important;
+    border: 2px solid #00FF00 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 10px #00FF00 !important;
+}
+
+.admin-section-title {
+    color: #00FFFF !important;
+    text-shadow: 0 0 5px #00FFFF !important;
+    border-bottom: 2px solid #00FFFF !important;
+}
+
+.admin-btn-primary {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+    border: 2px solid #00FF00 !important;
+}
+
+.admin-btn-danger {
+    background-color: #FF0000 !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+    border: 2px solid #FF0000 !important;
+}
+
+.apk-list-item {
+    background-color: #001A00 !important;
+    border: 1px solid #00FF00 !important;
+    border-radius: 0 !important;
+}
+
+.apk-list-name {
+    color: #00FF00 !important;
+}
+
+.apk-list-details {
+    color: #AAAAAA !important;
+}
+
+.success-message {
+    background-color: #001A00 !important;
+    border: 1px solid #00FF00 !important;
+    color: #00FF00 !important;
+    text-shadow: 0 0 3px #00FF00;
+    border-radius: 0 !important;
+}
+
+.error-message {
+    background-color: #1A0000 !important;
+    border: 1px solid #FF0000 !important;
+    color: #FF0000 !important;
+    text-shadow: 0 0 3px #FF0000;
+    border-radius: 0 !important;
 }
 
 /* ============================================
