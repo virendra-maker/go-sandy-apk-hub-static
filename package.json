@@ -1,0 +1,22 @@
+{
+  "name": "go-sandy-apk-hub-static",
+  "version": "1.0.0",
+  "description": "Go Sandy APK Hub - A simple static website for downloading APKs",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "apk",
+    "download",
+    "go-sandy",
+    "static-site"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/go-sandy-apk-hub-static"
+  }
+}

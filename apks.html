@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse APKs - Go Sandy APK Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://via.placeholder.com/40/DC2626/ffffff?text=GS" alt="Logo" class="logo">
+                    <h1 class="app-title">Go Sandy APK Hub</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="apks.html" class="nav-link active">Browse APKs</a>
+                    <a href="#" class="nav-link">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="apk-hero">
+                <h2 class="apk-hero-title">Download APKs for Go Sandy</h2>
+                <p class="apk-hero-subtitle">Browse and download the latest APK files</p>
+            </div>
+
+            <!-- Categories Filter -->
+            <div class="categories-section">
+                <h3 class="categories-title">Categories</h3>
+                <div class="categories-filter">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="games">Games</button>
+                    <button class="category-btn" data-category="tools">Tools</button>
+                    <button class="category-btn" data-category="social">Social</button>
+                    <button class="category-btn" data-category="productivity">Productivity</button>
+                </div>
+            </div>
+
+            <!-- APK Grid -->
+            <div class="apk-grid" id="apkGrid">
+                <!-- APK cards will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Go Sandy APK Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
