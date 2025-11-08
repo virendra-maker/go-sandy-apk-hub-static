@@ -2,11 +2,7 @@
 // ADMIN PANEL JAVASCRIPT
 // ============================================
 
-// Admin credentials
-const ADMIN_USERNAME = "sandy";
-const ADMIN_PASSWORD = "sandyhacker";
-const STORAGE_KEY = "gosandyApks";
-const AUTH_KEY = "adminAuthenticated";
+import { getApksData, saveApksData, getNextApkId, ADMIN_USERNAME, ADMIN_PASSWORD, AUTH_KEY } from './utils.js';
 
 // ============================================
 // DOM ELEMENTS
@@ -82,42 +78,7 @@ function showDashboard() {
 // APK MANAGEMENT FUNCTIONS
 // ============================================
 
-/**
- * Get APKs from Local Storage
- */
-function getApksData() {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-        try {
-            return JSON.parse(stored);
-        } catch (e) {
-            console.error("Error parsing stored APKs:", e);
-            return [];
-        }
-    }
-    return [];
-}
-
-/**
- * Save APKs to Local Storage
- */
-function saveApksData(apks) {
-    try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(apks));
-        return true;
-    } catch (e) {
-        console.error("Error saving APKs:", e);
-        return false;
-    }
-}
-
-/**
- * Get next available ID
- */
-function getNextApkId() {
-    const apks = getApksData();
-    return apks.length > 0 ? Math.max(...apks.map(a => a.id)) + 1 : 1;
-}
+// Storage and utility functions are now imported from utils.js
 
 /**
  * Add new APK
@@ -246,3 +207,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log('Admin Panel loaded successfully!');
+console.log(`Admin Credentials (Placeholder): Username: ${ADMIN_USERNAME}, Password: ${ADMIN_PASSWORD}. Please change these in utils.js for a real deployment.`);

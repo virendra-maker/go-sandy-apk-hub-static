@@ -1,57 +1,18 @@
-// ============================================
-// ADMIN CREDENTIALS (For demonstration only)
-// ============================================
-
-const ADMIN_USERNAME = "sandy";
-const ADMIN_PASSWORD = "sandyhacker";
-const STORAGE_KEY = "gosandyApks";
+import { getApksData, saveApksData, STORAGE_KEY } from './utils.js';
 
 // ============================================
-// DEFAULT APK DATA
+// DATA INITIALIZATION
 // ============================================
 
-const defaultApksData = [];
-
-// ============================================
-// STORAGE FUNCTIONS
-// ============================================
-
-/**
- * Get APKs from Local Storage or return default data
- */
-function getApksData() {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-        try {
-            return JSON.parse(stored);
-        } catch (e) {
-            console.error("Error parsing stored APKs:", e);
-            return defaultApksData;
-        }
-    }
-    return defaultApksData;
-}
-
-/**
- * Save APKs to Local Storage
- */
-function saveApksData(apks) {
-    try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(apks));
-        return true;
-    } catch (e) {
-        console.error("Error saving APKs:", e);
-        return false;
+// Check if data exists in localStorage, if not, initialize it.
+// This ensures that user-added data persists and is not overwritten by an empty array.
+function initializeApkData() {
+    if (localStorage.getItem(STORAGE_KEY) === null) {
+        saveApksData([]);
     }
 }
 
-/**
- * Get next available ID for new APK
- */
-function getNextApkId() {
-    const apks = getApksData();
-    return apks.length > 0 ? Math.max(...apks.map(a => a.id)) + 1 : 1;
-}
+// Storage functions are now in utils.js
 
 // ============================================
 // DOM ELEMENTS
@@ -162,8 +123,9 @@ function viewDetails(apkId) {
  * Initialize the page
  */
 function init() {
-    // Only run on APK listing page
+        // Only run on APK listing page
     if (apkGrid) {
+        initializeApkData(); // Ensure data is initialized
         const apks = getApksData();
         if (apks.length === 0) {
             apkGrid.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;"><p style="font-size: 1.2rem; color: #00FF00; text-shadow: 0 0 5px #00FF00;">No APKs available yet.</p><p style="color: #00FFFF; margin-top: 1rem;">Use the Admin Panel to add your APKs.</p></div>';
