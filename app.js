@@ -10,98 +10,7 @@ const STORAGE_KEY = "gosandyApks";
 // DEFAULT APK DATA
 // ============================================
 
-const defaultApksData = [
-    {
-        id: 1,
-        name: "Go Sandy - Main App",
-        version: "2.5.1",
-        category: "games",
-        description: "The main Go Sandy application with all the latest features and improvements.",
-        downloads: 15420,
-        image: "https://via.placeholder.com/300x160/DC2626/ffffff?text=Go+Sandy+Main",
-        downloadUrl: "https://example.com/go-sandy-main-2.5.1.apk"
-    },
-    {
-        id: 2,
-        name: "Go Sandy Lite",
-        version: "1.8.0",
-        category: "games",
-        description: "Lightweight version of Go Sandy optimized for low-end devices.",
-        downloads: 8930,
-        image: "https://via.placeholder.com/300x160/EF4444/ffffff?text=Go+Sandy+Lite",
-        downloadUrl: "https://example.com/go-sandy-lite-1.8.0.apk"
-    },
-    {
-        id: 3,
-        name: "Go Sandy Pro",
-        version: "3.0.0",
-        category: "games",
-        description: "Premium version with exclusive features and no ads.",
-        downloads: 5210,
-        image: "https://via.placeholder.com/300x160/991B1B/ffffff?text=Go+Sandy+Pro",
-        downloadUrl: "https://example.com/go-sandy-pro-3.0.0.apk"
-    },
-    {
-        id: 4,
-        name: "Sandy Tools",
-        version: "1.2.3",
-        category: "tools",
-        description: "Essential tools and utilities for Go Sandy players.",
-        downloads: 3450,
-        image: "https://via.placeholder.com/300x160/7F1D1D/ffffff?text=Sandy+Tools",
-        downloadUrl: "https://example.com/sandy-tools-1.2.3.apk"
-    },
-    {
-        id: 5,
-        name: "Sandy Companion",
-        version: "2.1.0",
-        category: "tools",
-        description: "Companion app for tracking stats and achievements.",
-        downloads: 2890,
-        image: "https://via.placeholder.com/300x160/DC2626/ffffff?text=Sandy+Companion",
-        downloadUrl: "https://example.com/sandy-companion-2.1.0.apk"
-    },
-    {
-        id: 6,
-        name: "Sandy Social",
-        version: "1.5.2",
-        category: "social",
-        description: "Connect with other Go Sandy players and share your achievements.",
-        downloads: 4120,
-        image: "https://via.placeholder.com/300x160/EF4444/ffffff?text=Sandy+Social",
-        downloadUrl: "https://example.com/sandy-social-1.5.2.apk"
-    },
-    {
-        id: 7,
-        name: "Sandy Chat",
-        version: "1.3.1",
-        category: "social",
-        description: "Real-time chat and messaging for the Go Sandy community.",
-        downloads: 3670,
-        image: "https://via.placeholder.com/300x160/991B1B/ffffff?text=Sandy+Chat",
-        downloadUrl: "https://example.com/sandy-chat-1.3.1.apk"
-    },
-    {
-        id: 8,
-        name: "Sandy Planner",
-        version: "2.0.0",
-        category: "productivity",
-        description: "Plan and organize your Go Sandy gaming sessions.",
-        downloads: 2340,
-        image: "https://via.placeholder.com/300x160/7F1D1D/ffffff?text=Sandy+Planner",
-        downloadUrl: "https://example.com/sandy-planner-2.0.0.apk"
-    },
-    {
-        id: 9,
-        name: "Sandy Notes",
-        version: "1.1.0",
-        category: "productivity",
-        description: "Take notes and keep track of important game tips.",
-        downloads: 1890,
-        image: "https://via.placeholder.com/300x160/DC2626/ffffff?text=Sandy+Notes",
-        downloadUrl: "https://example.com/sandy-notes-1.1.0.apk"
-    }
-];
+const defaultApksData = [];
 
 // ============================================
 // STORAGE FUNCTIONS
@@ -256,7 +165,11 @@ function init() {
     // Only run on APK listing page
     if (apkGrid) {
         const apks = getApksData();
-        renderApks(apks);
+        if (apks.length === 0) {
+            apkGrid.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;"><p style="font-size: 1.2rem; color: #00FF00; text-shadow: 0 0 5px #00FF00;">No APKs available yet.</p><p style="color: #00FFFF; margin-top: 1rem;">Use the Admin Panel to add your APKs.</p></div>';
+        } else {
+            renderApks(apks);
+        }
         setupCategoryFilters();
     }
 }
@@ -269,3 +182,4 @@ document.addEventListener('DOMContentLoaded', init);
 
 // Support for smooth scrolling and basic analytics
 console.log('Go Sandy APK Hub - Static Version loaded successfully!');
+console.log('No default APKs loaded. Use the Admin Panel to add APKs.');
